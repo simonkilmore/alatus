@@ -119,3 +119,9 @@ gulp.task("watch", watch);
 //define build and also set default task as build
 gulp.task("build", build);
 gulp.task("default", build);
+
+//gh pages 
+gulp.task('deploy', function () {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
