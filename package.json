@@ -23,7 +23,8 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "postcss-uncss": "^0.17.0",
-    "uncss": "^0.17.0"
+    "uncss": "^0.17.0",
+    "lodash.template": ">=4.5.0"
   },
   "browserslist": [
     "last 1 version",
