@@ -1,0 +1,191 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Cabin";
+  background: #201c2b;
+  color: #888;
+}
+
+$row-width: 100%;
+
+//Unitless, will be converted to %
+$gutter-width:1;
+
+
+//Border-box all the things.
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+//These are the two mixins that do the work: 
+@mixin grid-row ($max-row-width: $row-width, $center: false) {
+  margin: 0 auto;
+  max-width: $max-row-width;
+  display: flex;
+  flex-wrap: wrap;
+
+  @if $center==true {
+    justify-content: center;
+  }
+
+  @else {
+    justify-content: space-between;
+  }
+}
+
+@mixin grid-col ($width:1, $gutter: $gutter-width) {
+  $percentage: percentage($width);
+  width: $percentage - ($gutter-width - $width * $gutter-width);
+}
+
+/* End mixins! Styles start here, do whatever you want */
+
+
+section {
+  margin: 3rem auto;
+  max-width: 70rem;
+  padding: 0 1rem;
+}
+
+h1,
+h2 {
+  color: #dad8de;
+  margin: 1rem 0 1.5rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+h5 {
+  font-size: 1.0rem;
+  text-align: center;
+  margin: 6px 0 24px;
+  color: #00b8ef;
+}
+
+.update {
+  margin: 0 auto;
+  font-size: 0.8rem;
+}
+
+p,
+pre {
+  line-height: 1.4;
+  color: #888;
+}
+
+p {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+
+pre {
+  font-size: 1.3rem;
+  font-family: monospace;
+}
+
+.row,
+.cell {
+  margin-bottom: 1.5rem;
+}
+
+.cell {
+  background-color: #eee;
+  border: 1px solid #ddd;
+
+  p {
+    text-align: center;
+  }
+}
+
+
+.intro {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.intro img {
+  border-radius: 50%;
+}
+
+.intro a {
+  color: #00b8ef;
+  text-decoration: none;
+  margin-top: 16px;
+  display: block;
+  font-size: 1.2em;
+
+}
+
+article {
+  @include grid-row();
+}
+
+.entry-meta {
+  @include grid-col(3/12);
+}
+
+.entry-content {
+  @include grid-col(9/12);
+}
+
+.news-cards {
+  @include grid-row();
+}
+
+.news-card {
+  @include grid-col(4/12);
+  margin-bottom: 16px;
+  text-align: center;
+  padding: 0 4px;
+
+  h3 {
+    color: #dad8d1;
+    font-weight: 400;
+    margin-top: 6px;
+    font-size: 1.1em;
+    line-height: 1.4;
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+}
+
+//Bring your own media queries
+@media screen and (min-width: 45rem) {
+
+  .news-card {
+    @include grid-col(3/12);
+  }
+}
+
+@media screen and (min-width: 55rem) {
+
+  .news-card {
+    @include grid-col(2/12);
+  }
+}

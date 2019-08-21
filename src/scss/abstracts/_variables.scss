@@ -1,0 +1,36 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+//grid breakpoints/media queries//
+$sm: new-breakpoint(min-width 576px); //small up
+$md: new-breakpoint(min-width 768px); //medium up
+$lg: new-breakpoint(min-width 992px); //large up
+$xl: new-breakpoint(min-width 1200px); //xl up
+
+//with min and max for omega elements//
+$xs-md: new-breakpoint(max-width 767px); //for between 0 and 767
+
+$sm-down: new-breakpoint(max-width 575px); // 575 downwards
+$sm-md: new-breakpoint(min-width 576px max-width 767px); //for between 576 and 767
+$sm-lg: new-breakpoint(min-width 576px max-width 991px); //for between 576 and 991
+$sm-xl: new-breakpoint(min-width 576px max-width 1199px); //for between 576 and 1199
+
+$md-lg: new-breakpoint(min-width 768px max-width 991px); //for between 768 and 991
+
+//font-stacks
+//
+//$body-stack:
+//$heading-stack:
+
+//raw color variables
+
+//named color variables
+
+/*$main-color: ; //the dominant colour of the theme
+$sub-color: ; //the second most used color
+$
+$lighter-text-color:; //the lighter alternative colour for text
+$main-bg:; //the color used as the bg colour of most elements
+*/
+
+$body-text: #f2f2f2; //the colour of all/most normal body copy

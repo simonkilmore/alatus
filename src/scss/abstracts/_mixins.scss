@@ -1,0 +1,44 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/* Calculate fluid ratio based on two dimensions (width/height) */
+@mixin fluid-ratio($large-size, $small-size) {
+  $width-large: nth($large-size, 1);
+  $width-small: nth($small-size, 1);
+  $height-large: nth($large-size, 2);
+  $height-small: nth($small-size, 2);
+  $slope: ($height-large - $height-small) / ($width-large - $width-small);
+  $height: $height-small - $width-small * $slope;
+
+  padding-top: $slope * 100%;
+  height: $height;
+
+  background-size: cover;
+  -moz-background-size: cover; /* Firefox 3.6 */
+  background-position: center; /* Internet Explorer 7/8 */
+}
+
+/// Defines a vector svg as bg image with png fallback
+/// Usage
+///   .foo {
+///     @include vector-bg-with-fallback(nameoffile_without_extension)
+///    }
+///
+@mixin vector-bg-with-fallback($name) {
+  background-image: url("../img/#{$name}.png");
+  background-image: none, url("../img/#{$name}.svg");
+}
+
+/// Mixin helping defining both `width` and `height` simultaneously.
+///
+/// @example scss - Usage
+///   .foo {
+///     @include size(10em); both the same
+///     @include size(100%, 10em); width, height
+///   }
+///
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
