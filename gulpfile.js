@@ -9,6 +9,7 @@ var cssmqpacker = require("css-mqpacker");
 var uncss = require("postcss-uncss");
 var pngquant = require("imagemin-pngquant");
 var mozjpeg = require("imagemin-mozjpeg");
+var ghPages = require('gulp-gh-pages');
 
 // define source and destination paths
 var paths = {
